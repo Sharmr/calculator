@@ -1,0 +1,10 @@
+#display{
+    font-size: 50px;
+    font-family: "Orbitron", sans-serif;
+}
+
+.panel {
+    display: grid;
+    height: 400px;
+    width: 300px;
+}
