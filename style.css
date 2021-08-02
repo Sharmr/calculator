@@ -1,6 +1,22 @@
 #display{
     font-size: 50px;
     font-family: "Orbitron", sans-serif;
+    height:50px;
+    width: 300px;
+    border-style: inset;
+    text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    direction: rtl;
+}
+
+.buttons {
+    display: grid;
+    height: 50px;
+    width: 300px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
 }
 
 .panel {
