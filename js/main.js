@@ -11,6 +11,10 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if(b == 0) {
+        window.alert("Don't divide by zero (don't)");
+        return undefined;
+    }
     return a / b;
 }
 
@@ -51,12 +55,26 @@ function makeButtons() {
     z.id = 0;
     z.style.fontSize='15px';
     z.style.gridColumnStart = '1';
-    z.style.gridColumnEnd = 'span 2';
+    z.style.gridColumnEnd = 'span 1';
     z.addEventListener('click', () => {
         addtoDisplay(z.innerText);
     });
     panel.appendChild(z);
 
+    const dot = document.createElement("BUTTON");
+    dot.innerText = '.';
+    dot.classList.add('numberButton');
+    dot.id = '.';
+    dot.style.fontSize='15px';
+    dot.style.gridColumnStart = '2';
+    dot.style.gridColumnEnd = 'span 1';
+    dot.addEventListener('click', () => {
+        if(dotExists()){
+            return;
+        }
+        addtoDisplay('.');
+    });
+    panel.appendChild(dot);
 
     const e = document.createElement("BUTTON");
     e.innerText = '=';
@@ -70,6 +88,14 @@ let display_value = '';
 let variables = [];
 let operators = [];
 
+function dotExists() {
+    if(display_value % 1 != 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 function addtoDisplay(c) {
     display_value += c;
